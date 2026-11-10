@@ -1,0 +1,6 @@
+# vLLM-Metal executes as a host-native process managed by Docker Model Runner.
+# It cannot be placed in a standard Linux container with Metal acceleration.
+services:
+  traffic-generator:
+    environment:
+      VLLM_BASE_URL: http://model-runner.docker.internal/engines/v1

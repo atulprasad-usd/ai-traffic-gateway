@@ -1,0 +1,35 @@
+# Secrets / local config
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Java (future gateway)
+target/
+build/
+.gradle/
+*.class
+
+# Archives / build artifacts
+*.zip
+
+# Logs and run output
+*.log
+logs/
+
+# macOS
+.DS_Store
+
+# Editors
+.idea/
+.vscode/*
+!.vscode/settings.json

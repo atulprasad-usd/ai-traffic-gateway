@@ -1,0 +1,14 @@
+name: ai-traffic-gateway
+services:
+  traffic-generator:
+    image: ${TRAFFIC_IMAGE:-ai-traffic-generator:0.2.0}
+    build:
+      context: ./traffic-generator
+    environment:
+      VLLM_BASE_URL: ${VLLM_BASE_URL:?set VLLM_BASE_URL in .env}
+      MODEL_NAME: ${MODEL_NAME:?set MODEL_NAME in .env}
+      CONCURRENCY: ${CONCURRENCY:-5}
+      TOTAL_REQUESTS: ${TOTAL_REQUESTS:-20}
+      MAX_TOKENS: ${MAX_TOKENS:-40}
+      READINESS_TIMEOUT: ${READINESS_TIMEOUT:-180}
+    restart: "no"

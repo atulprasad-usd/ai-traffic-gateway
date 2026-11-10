@@ -1,0 +1,22 @@
+# Run under Docker Desktop with WSL2, updated NVIDIA drivers, and GPU support.
+services:
+  traffic-generator:
+    environment:
+      VLLM_BASE_URL: http://vllm:8000/v1
+  vllm:
+    image: ${VLLM_IMAGE:-vllm/vllm-openai:latest}
+    gpus: all
+    ipc: host
+    ports:
+      - "127.0.0.1:8080:8000"
+    volumes:
+      - model-cache:/root/.cache/huggingface
+    command:
+      - --model
+      - ${WINDOWS_MODEL:-Qwen/Qwen3-0.6B}
+      - --gpu-memory-utilization
+      - "0.80"
+      - --max-model-len
+      - "2048"
+volumes:
+  model-cache:
