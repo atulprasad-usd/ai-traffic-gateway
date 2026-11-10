@@ -33,3 +33,11 @@ logs/
 .idea/
 .vscode/*
 !.vscode/settings.json
+
+# Local agent kit (not tracked)
+AGENTS.md
+CLAUDE.md
+README_AGENT_KIT.md
+agents/
+docs/
+scripts/agents/
